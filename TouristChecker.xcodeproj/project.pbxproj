@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E35CCDF01B8364DE00530AA5 /* FoursquareAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E35CCDEF1B8364DE00530AA5 /* FoursquareAPI.m */; };
+		E35CCDF31B83662200530AA5 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = E35CCDF21B83662200530AA5 /* Constants.m */; };
 		E37195E11B83230F00EE69CF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E37195E01B83230F00EE69CF /* CoreLocation.framework */; };
 		E37195E51B8326DD00EE69CF /* MapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E37195E41B8326DD00EE69CF /* MapViewModel.m */; };
 		E37195E91B83302800EE69CF /* QueryAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E37195E81B83302800EE69CF /* QueryAnnotation.m */; };
@@ -19,6 +21,7 @@
 		E3F3282F1B8226010090F8E8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3F3282D1B8226010090F8E8 /* LaunchScreen.xib */; };
 		E3F3283B1B8226010090F8E8 /* TouristCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F3283A1B8226010090F8E8 /* TouristCheckerTests.m */; };
 		E3F328451B8230A80090F8E8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F328441B8230A80090F8E8 /* MapKit.framework */; };
+		F29C51A6F251392463E655DB /* libPods-TouristChecker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1F067E5D09D125D7B6F8F4 /* libPods-TouristChecker.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +35,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A1F067E5D09D125D7B6F8F4 /* libPods-TouristChecker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TouristChecker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC2910688AD7F6298DFED89B /* Pods-TouristChecker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouristChecker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TouristChecker/Pods-TouristChecker.debug.xcconfig"; sourceTree = "<group>"; };
+		E35CCDEE1B8364DE00530AA5 /* FoursquareAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoursquareAPI.h; path = API/FoursquareAPI.h; sourceTree = "<group>"; };
+		E35CCDEF1B8364DE00530AA5 /* FoursquareAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoursquareAPI.m; path = API/FoursquareAPI.m; sourceTree = "<group>"; };
+		E35CCDF11B83662200530AA5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		E35CCDF21B83662200530AA5 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		E37195E01B83230F00EE69CF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E37195E31B8326DD00EE69CF /* MapViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewModel.h; path = ViewModel/MapViewModel.h; sourceTree = "<group>"; };
 		E37195E41B8326DD00EE69CF /* MapViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewModel.m; path = ViewModel/MapViewModel.m; sourceTree = "<group>"; };
@@ -52,6 +61,7 @@
 		E3F328391B8226010090F8E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3F3283A1B8226010090F8E8 /* TouristCheckerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouristCheckerTests.m; sourceTree = "<group>"; };
 		E3F328441B8230A80090F8E8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F41F2422183A13B4CF7FC38B /* Pods-TouristChecker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouristChecker.release.xcconfig"; path = "Pods/Target Support Files/Pods-TouristChecker/Pods-TouristChecker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +71,7 @@
 			files = (
 				E37195E11B83230F00EE69CF /* CoreLocation.framework in Frameworks */,
 				E3F328451B8230A80090F8E8 /* MapKit.framework in Frameworks */,
+				F29C51A6F251392463E655DB /* libPods-TouristChecker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +85,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6A3C4375AADFC3528CBFF0D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC2910688AD7F6298DFED89B /* Pods-TouristChecker.debug.xcconfig */,
+				F41F2422183A13B4CF7FC38B /* Pods-TouristChecker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E35CCDED1B8364C700530AA5 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E35CCDEE1B8364DE00530AA5 /* FoursquareAPI.h */,
+				E35CCDEF1B8364DE00530AA5 /* FoursquareAPI.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		E37195E21B8326B500EE69CF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +128,7 @@
 				E3F328371B8226010090F8E8 /* TouristCheckerTests */,
 				E3F328191B8226010090F8E8 /* Products */,
 				E3F328461B8230B50090F8E8 /* Frameworks */,
+				A6A3C4375AADFC3528CBFF0D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +144,7 @@
 		E3F3281A1B8226010090F8E8 /* TouristChecker */ = {
 			isa = PBXGroup;
 			children = (
+				E35CCDED1B8364C700530AA5 /* API */,
 				E37195E61B83301500EE69CF /* Model */,
 				E37195E21B8326B500EE69CF /* ViewModel */,
 				E3F3281F1B8226010090F8E8 /* AppDelegate.h */,
@@ -134,6 +165,8 @@
 			children = (
 				E3F3281C1B8226010090F8E8 /* Info.plist */,
 				E3F3281D1B8226010090F8E8 /* main.m */,
+				E35CCDF11B83662200530AA5 /* Constants.h */,
+				E35CCDF21B83662200530AA5 /* Constants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -160,6 +193,7 @@
 			children = (
 				E37195E01B83230F00EE69CF /* CoreLocation.framework */,
 				E3F328441B8230A80090F8E8 /* MapKit.framework */,
+				3A1F067E5D09D125D7B6F8F4 /* libPods-TouristChecker.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -171,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3F3283E1B8226010090F8E8 /* Build configuration list for PBXNativeTarget "TouristChecker" */;
 			buildPhases = (
+				EAB9F1D55B389767B5D6D44A /* Check Pods Manifest.lock */,
 				E3F328141B8226010090F8E8 /* Sources */,
 				E3F328151B8226010090F8E8 /* Frameworks */,
 				E3F328161B8226010090F8E8 /* Resources */,
+				AD42FEA2A007668AE1FB8EB6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,6 +296,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AD42FEA2A007668AE1FB8EB6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TouristChecker/Pods-TouristChecker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAB9F1D55B389767B5D6D44A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E3F328141B8226010090F8E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -268,7 +337,9 @@
 				E3F328241B8226010090F8E8 /* TouristChecker.xcdatamodeld in Sources */,
 				E37195E91B83302800EE69CF /* QueryAnnotation.m in Sources */,
 				E3F328211B8226010090F8E8 /* AppDelegate.m in Sources */,
+				E35CCDF31B83662200530AA5 /* Constants.m in Sources */,
 				E3F328271B8226010090F8E8 /* ViewController.m in Sources */,
+				E35CCDF01B8364DE00530AA5 /* FoursquareAPI.m in Sources */,
 				E37195E51B8326DD00EE69CF /* MapViewModel.m in Sources */,
 				E3F3281E1B8226010090F8E8 /* main.m in Sources */,
 			);
@@ -394,6 +465,7 @@
 		};
 		E3F3283F1B8226010090F8E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC2910688AD7F6298DFED89B /* Pods-TouristChecker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -406,6 +478,7 @@
 		};
 		E3F328401B8226010090F8E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F41F2422183A13B4CF7FC38B /* Pods-TouristChecker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

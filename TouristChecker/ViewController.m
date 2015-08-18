@@ -10,7 +10,7 @@
 #import "MapViewModel.h"
 @import MapKit;
 
-@interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
+@interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate, MapViewModelDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) CLLocationManager *locationManager;
@@ -54,9 +54,13 @@
     }
     self.viewModel.queryPoint = [[QueryAnnotation alloc] initWithLocation:coordinate];
     [self.mapView addAnnotation:self.viewModel.queryPoint];
-    [self.viewModel queryPlaceSuccess:^(NSArray *dataArray) {
-        NSLog(@"success");
-    }];
+    [self.viewModel queryPlace];
+}
+
+#pragma mark - ViewModel Delegate
+
+- (void)viewModelGetNewData:(NSArray *)dataArray {
+    [self.mapView addAnnotations:dataArray];
 }
 
 #pragma mark - MapView Delegate
@@ -154,6 +158,7 @@
     self.locationManager.delegate = self;
 
     self.viewModel = [[MapViewModel alloc] init];
+    self.viewModel.delegate = self;
 }
 
 @end
