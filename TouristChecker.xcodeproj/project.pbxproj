@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E37195E11B83230F00EE69CF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E37195E01B83230F00EE69CF /* CoreLocation.framework */; };
 		E37195E51B8326DD00EE69CF /* MapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E37195E41B8326DD00EE69CF /* MapViewModel.m */; };
+		E37195E91B83302800EE69CF /* QueryAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E37195E81B83302800EE69CF /* QueryAnnotation.m */; };
 		E3F3281E1B8226010090F8E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F3281D1B8226010090F8E8 /* main.m */; };
 		E3F328211B8226010090F8E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F328201B8226010090F8E8 /* AppDelegate.m */; };
 		E3F328241B8226010090F8E8 /* TouristChecker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3F328221B8226010090F8E8 /* TouristChecker.xcdatamodeld */; };
@@ -34,6 +35,8 @@
 		E37195E01B83230F00EE69CF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E37195E31B8326DD00EE69CF /* MapViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewModel.h; path = ViewModel/MapViewModel.h; sourceTree = "<group>"; };
 		E37195E41B8326DD00EE69CF /* MapViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewModel.m; path = ViewModel/MapViewModel.m; sourceTree = "<group>"; };
+		E37195E71B83302800EE69CF /* QueryAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QueryAnnotation.h; path = Model/QueryAnnotation.h; sourceTree = "<group>"; };
+		E37195E81B83302800EE69CF /* QueryAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QueryAnnotation.m; path = Model/QueryAnnotation.m; sourceTree = "<group>"; };
 		E3F328181B8226010090F8E8 /* TouristChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouristChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F3281C1B8226010090F8E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3F3281D1B8226010090F8E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,6 +83,15 @@
 			name = ViewModel;
 			sourceTree = "<group>";
 		};
+		E37195E61B83301500EE69CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E37195E71B83302800EE69CF /* QueryAnnotation.h */,
+				E37195E81B83302800EE69CF /* QueryAnnotation.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		E3F3280F1B8226010090F8E8 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +114,7 @@
 		E3F3281A1B8226010090F8E8 /* TouristChecker */ = {
 			isa = PBXGroup;
 			children = (
+				E37195E61B83301500EE69CF /* Model */,
 				E37195E21B8326B500EE69CF /* ViewModel */,
 				E3F3281F1B8226010090F8E8 /* AppDelegate.h */,
 				E3F328201B8226010090F8E8 /* AppDelegate.m */,
@@ -253,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3F328241B8226010090F8E8 /* TouristChecker.xcdatamodeld in Sources */,
+				E37195E91B83302800EE69CF /* QueryAnnotation.m in Sources */,
 				E3F328211B8226010090F8E8 /* AppDelegate.m in Sources */,
 				E3F328271B8226010090F8E8 /* ViewController.m in Sources */,
 				E37195E51B8326DD00EE69CF /* MapViewModel.m in Sources */,
