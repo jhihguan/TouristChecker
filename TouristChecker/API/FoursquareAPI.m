@@ -8,6 +8,7 @@
 
 #import "FoursquareAPI.h"
 #import "Constants.h"
+#import "MapBaseModel.h"
 #import <AFNetworking.h>
 
 @implementation FoursquareAPI
@@ -25,15 +26,21 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *parmas = [self getBaseParams];
     [parmas setValue:loc forKey:@"ll"];
-    [parmas setValue:@(50) forKey:@"limit"];
+    [parmas setValue:@(5) forKey:@"limit"];
     [parmas setValue:@(1500) forKey:@"radius"];
     [manager GET:[FOUR_API_BASE stringByAppendingString:FOUR_EXPLORE_API] parameters:parmas success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSMutableArray *dataArray = [[NSMutableArray alloc] init];
         NSArray *itemArray = [[[[responseObject valueForKey:@"response"] valueForKey:@"groups"] firstObject] valueForKey:@"items"];
         for (NSDictionary *item in itemArray) {
-            NSLog(@"%@", [[item valueForKey:@"venue"] valueForKey:@"name"]);
+            NSDictionary *dataDict = [MapBaseModel transFourSquareVenueDict:[item valueForKey:@"venue"]];
+            NSError *error = nil;
+            MapBaseModel *model = [MTLJSONAdapter modelOfClass:MapBaseModel.class fromJSONDictionary:dataDict error:&error];
+            if (!error) {
+                [dataArray addObject:model];
+            }
         }
         if (complete) {
-            complete(itemArray);
+            complete(dataArray);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (complete) {

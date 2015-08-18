@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E35CCDF01B8364DE00530AA5 /* FoursquareAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E35CCDEF1B8364DE00530AA5 /* FoursquareAPI.m */; };
 		E35CCDF31B83662200530AA5 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = E35CCDF21B83662200530AA5 /* Constants.m */; };
+		E35CCDF61B837F3900530AA5 /* MapBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E35CCDF51B837F3900530AA5 /* MapBaseModel.m */; };
 		E37195E11B83230F00EE69CF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E37195E01B83230F00EE69CF /* CoreLocation.framework */; };
 		E37195E51B8326DD00EE69CF /* MapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E37195E41B8326DD00EE69CF /* MapViewModel.m */; };
 		E37195E91B83302800EE69CF /* QueryAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E37195E81B83302800EE69CF /* QueryAnnotation.m */; };
@@ -41,6 +42,8 @@
 		E35CCDEF1B8364DE00530AA5 /* FoursquareAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoursquareAPI.m; path = API/FoursquareAPI.m; sourceTree = "<group>"; };
 		E35CCDF11B83662200530AA5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		E35CCDF21B83662200530AA5 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		E35CCDF41B837F3900530AA5 /* MapBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapBaseModel.h; path = Model/MapBaseModel.h; sourceTree = "<group>"; };
+		E35CCDF51B837F3900530AA5 /* MapBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapBaseModel.m; path = Model/MapBaseModel.m; sourceTree = "<group>"; };
 		E37195E01B83230F00EE69CF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E37195E31B8326DD00EE69CF /* MapViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewModel.h; path = ViewModel/MapViewModel.h; sourceTree = "<group>"; };
 		E37195E41B8326DD00EE69CF /* MapViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewModel.m; path = ViewModel/MapViewModel.m; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 			children = (
 				E37195E71B83302800EE69CF /* QueryAnnotation.h */,
 				E37195E81B83302800EE69CF /* QueryAnnotation.m */,
+				E35CCDF41B837F3900530AA5 /* MapBaseModel.h */,
+				E35CCDF51B837F3900530AA5 /* MapBaseModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 			files = (
 				E3F328241B8226010090F8E8 /* TouristChecker.xcdatamodeld in Sources */,
 				E37195E91B83302800EE69CF /* QueryAnnotation.m in Sources */,
+				E35CCDF61B837F3900530AA5 /* MapBaseModel.m in Sources */,
 				E3F328211B8226010090F8E8 /* AppDelegate.m in Sources */,
 				E35CCDF31B83662200530AA5 /* Constants.m in Sources */,
 				E3F328271B8226010090F8E8 /* ViewController.m in Sources */,
