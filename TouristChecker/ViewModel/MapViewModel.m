@@ -8,6 +8,8 @@
 
 #import "MapViewModel.h"
 #import "FoursquareAPI.h"
+#import "MapBaseModel.h"
+#import "PlaceAnnotation.h"
 
 @interface MapViewModel ()
 
@@ -30,9 +32,14 @@
     
     [[FoursquareAPI sharedAPI] searchLocationPlaces:self.locationString success:^(NSArray *dataArray) {
         self.isQuery = NO;
-//        if ([self.delegate respondsToSelector:@selector(viewModelGetNewData:)]) {
-//            [self.delegate viewModelGetNewData:dataArray];
-//        }
+        NSMutableArray *transArray = [[NSMutableArray alloc] init];
+        for (MapBaseModel *baseModel in dataArray) {
+            PlaceAnnotation *mapAnno = [[PlaceAnnotation alloc] initWithMapModel:baseModel];
+            [transArray addObject:mapAnno];
+        }
+        if ([self.delegate respondsToSelector:@selector(viewModelGetNewData:)]) {
+            [self.delegate viewModelGetNewData:transArray];
+        }
         NSMutableArray *tempArray = [self.mapDataArray mutableCopy];
         [tempArray addObjectsFromArray:dataArray];
         self.mapDataArray = [[NSArray alloc] initWithArray:tempArray];
