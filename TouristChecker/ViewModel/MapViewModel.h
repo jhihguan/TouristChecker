@@ -10,13 +10,20 @@
 #import "QueryAnnotation.h"
 @import CoreLocation;
 
+@protocol MapViewModelDelegate;
 @interface MapViewModel : NSObject
 
 @property (nonatomic) BOOL isQuery;
 
 @property (nonatomic, strong) NSArray *mapDataArray;
 @property (nonatomic, strong) QueryAnnotation *queryPoint;
+@property (nonatomic, weak) id<MapViewModelDelegate> delegate;
 
-- (void)queryPlaceSuccess:(void (^)(NSArray *dataArray))complete;
+- (void)queryPlace;
+
+@end
+@protocol MapViewModelDelegate <NSObject>
+
+- (void)viewModelGetNewData:(NSArray *)dataArray;
 
 @end

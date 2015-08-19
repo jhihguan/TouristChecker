@@ -7,25 +7,48 @@
 //
 
 #import "MapViewModel.h"
+#import "FoursquareAPI.h"
+#import "MapBaseModel.h"
+#import "PlaceAnnotation.h"
+
+@interface MapViewModel ()
+
+@property (nonatomic, strong) NSString *locationString;
+
+@end
 
 @implementation MapViewModel
 
 /**
  * query place data with location
  */
-- (void)queryPlaceSuccess:(void (^)(NSArray *))complete {
+- (void)queryPlace {
     
-    if (self.queryPoint.coordinate.latitude == 0) {
+    if (!self.queryPoint) {
         return;
     }
     self.isQuery = YES;
-    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    self.mapDataArray = [[NSArray alloc] init];
     
-    self.mapDataArray = [[NSArray alloc] initWithArray:dataArray];
-    if (complete) {
+    [[FoursquareAPI sharedAPI] searchLocationPlaces:self.locationString success:^(NSArray *dataArray) {
         self.isQuery = NO;
-        complete(self.mapDataArray);
-    }
+        NSMutableArray *transArray = [[NSMutableArray alloc] init];
+        for (MapBaseModel *baseModel in dataArray) {
+            PlaceAnnotation *mapAnno = [[PlaceAnnotation alloc] initWithMapModel:baseModel];
+            [transArray addObject:mapAnno];
+        }
+        if ([self.delegate respondsToSelector:@selector(viewModelGetNewData:)]) {
+            [self.delegate viewModelGetNewData:transArray];
+        }
+        NSMutableArray *tempArray = [self.mapDataArray mutableCopy];
+        [tempArray addObjectsFromArray:dataArray];
+        self.mapDataArray = [[NSArray alloc] initWithArray:tempArray];
+    }];
+}
+
+- (void)setQueryPoint:(QueryAnnotation *)queryPoint {
+    _queryPoint = queryPoint;
+    self.locationString = [[NSString alloc] initWithFormat:@"%lf,%lf", queryPoint.coordinate.latitude, queryPoint.coordinate.longitude];
 }
 
 @end

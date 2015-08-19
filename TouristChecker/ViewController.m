@@ -8,9 +8,10 @@
 
 #import "ViewController.h"
 #import "MapViewModel.h"
+#import "PlaceAnnotation.h"
 @import MapKit;
 
-@interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
+@interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate, MapViewModelDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) CLLocationManager *locationManager;
@@ -49,14 +50,16 @@
     if (self.viewModel.isQuery) {
         return;
     }
-    if (self.viewModel.queryPoint) {
-        [self.mapView removeAnnotation:self.viewModel.queryPoint];
-    }
+    [self.mapView removeAnnotations:self.mapView.annotations];
     self.viewModel.queryPoint = [[QueryAnnotation alloc] initWithLocation:coordinate];
     [self.mapView addAnnotation:self.viewModel.queryPoint];
-    [self.viewModel queryPlaceSuccess:^(NSArray *dataArray) {
-        NSLog(@"success");
-    }];
+    [self.viewModel queryPlace];
+}
+
+#pragma mark - ViewModel Delegate
+
+- (void)viewModelGetNewData:(NSArray *)dataArray {
+    [self.mapView addAnnotations:dataArray];
 }
 
 #pragma mark - MapView Delegate
@@ -65,6 +68,12 @@
     if ([annotation isKindOfClass:[QueryAnnotation class]]) {
         static NSString *const REUSE_QUERY_ANNOTATION = @"QUERY_ANNOTATION";
         MKPinAnnotationView *pinAnnoView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:REUSE_QUERY_ANNOTATION];
+        pinAnnoView.canShowCallout = YES;
+        pinAnnoView.pinColor = MKPinAnnotationColorPurple;
+        return pinAnnoView;
+    } else if ([annotation isKindOfClass:[PlaceAnnotation class]]) {
+        static NSString *const REUSE_PLACE_ANNOTATION = @"PLACE_ANNOTATION";
+        MKPinAnnotationView *pinAnnoView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:REUSE_PLACE_ANNOTATION];
         pinAnnoView.canShowCallout = YES;
         pinAnnoView.pinColor = MKPinAnnotationColorRed;
         return pinAnnoView;
@@ -154,6 +163,7 @@
     self.locationManager.delegate = self;
 
     self.viewModel = [[MapViewModel alloc] init];
+    self.viewModel.delegate = self;
 }
 
 @end
