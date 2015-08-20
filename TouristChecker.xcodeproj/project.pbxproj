@@ -14,6 +14,7 @@
 		E37195E51B8326DD00EE69CF /* MapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E37195E41B8326DD00EE69CF /* MapViewModel.m */; };
 		E37195E91B83302800EE69CF /* QueryAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E37195E81B83302800EE69CF /* QueryAnnotation.m */; };
 		E395C8331B84370B00A2EB2F /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E395C8321B84370B00A2EB2F /* PlaceAnnotation.m */; };
+		E3B13C611B86308A006947CC /* GoogleplaceAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B13C601B86308A006947CC /* GoogleplaceAPI.m */; };
 		E3F3281E1B8226010090F8E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F3281D1B8226010090F8E8 /* main.m */; };
 		E3F328211B8226010090F8E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F328201B8226010090F8E8 /* AppDelegate.m */; };
 		E3F328241B8226010090F8E8 /* TouristChecker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3F328221B8226010090F8E8 /* TouristChecker.xcdatamodeld */; };
@@ -52,6 +53,8 @@
 		E37195E81B83302800EE69CF /* QueryAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QueryAnnotation.m; path = Model/QueryAnnotation.m; sourceTree = "<group>"; };
 		E395C8311B84370B00A2EB2F /* PlaceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaceAnnotation.h; path = Model/PlaceAnnotation.h; sourceTree = "<group>"; };
 		E395C8321B84370B00A2EB2F /* PlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaceAnnotation.m; path = Model/PlaceAnnotation.m; sourceTree = "<group>"; };
+		E3B13C5F1B86308A006947CC /* GoogleplaceAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoogleplaceAPI.h; path = API/GoogleplaceAPI.h; sourceTree = "<group>"; };
+		E3B13C601B86308A006947CC /* GoogleplaceAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoogleplaceAPI.m; path = API/GoogleplaceAPI.m; sourceTree = "<group>"; };
 		E3F328181B8226010090F8E8 /* TouristChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouristChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F3281C1B8226010090F8E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3F3281D1B8226010090F8E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 			children = (
 				E35CCDEE1B8364DE00530AA5 /* FoursquareAPI.h */,
 				E35CCDEF1B8364DE00530AA5 /* FoursquareAPI.m */,
+				E3B13C5F1B86308A006947CC /* GoogleplaceAPI.h */,
+				E3B13C601B86308A006947CC /* GoogleplaceAPI.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 				E35CCDF61B837F3900530AA5 /* MapBaseModel.m in Sources */,
 				E3F328211B8226010090F8E8 /* AppDelegate.m in Sources */,
 				E35CCDF31B83662200530AA5 /* Constants.m in Sources */,
+				E3B13C611B86308A006947CC /* GoogleplaceAPI.m in Sources */,
 				E3F328271B8226010090F8E8 /* ViewController.m in Sources */,
 				E35CCDF01B8364DE00530AA5 /* FoursquareAPI.m in Sources */,
 				E37195E51B8326DD00EE69CF /* MapViewModel.m in Sources */,

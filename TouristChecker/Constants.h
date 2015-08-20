@@ -18,6 +18,9 @@ static NSString *const FOUR_CLIENT_SECRET_VALUE = @"WLSN1QOBBFIEUWUM5LGVH4OS154U
 static NSString *const FOUR_VERSION_KEY = @"v";
 static NSString *const FOUR_VERSION_VALUE = @"20150818";
 
+// GooglePlace API KEY
+static NSString *const GOOGLE_PLACE_API_KEY = @"AIzaSyCRfPjlM9pWH_vKH2iXkNVMdXOIJihMX4A";
+
 @interface Constants : NSObject
 
 @end
