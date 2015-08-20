@@ -30,7 +30,7 @@
 /**
  * Calculate route by queryPoint and destinationPoint
  */
-- (void)calculateWalkRouteSuccess:(void (^)(MKRoute *route))complete;
+- (void)calculateWalkRouteSuccess:(void (^)(MKRoute *route))complete failure:(void (^)())fail;
 
 @end
 @protocol MapViewModelDelegate <NSObject>

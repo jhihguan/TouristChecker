@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MapViewModel.h"
+#import <SVProgressHUD.h>
 @import MapKit;
 
 @interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate, MapViewModelDelegate>
@@ -77,8 +78,13 @@
         if (self.viewModel.walkRoute) {
             [self.mapView removeOverlay:self.viewModel.walkRoute.polyline];
         }
-        [self.viewModel calculateWalkRouteSuccess:^(MKRoute *route) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        [self.viewModel calculateWalkRouteSuccess:^(MKRoute *route){
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             [self.mapView addOverlay:route.polyline];
+        } failure:^{
+            [SVProgressHUD showErrorWithStatus:@"Error Loading"];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         }];
     }
 }

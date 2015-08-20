@@ -43,7 +43,7 @@
     }];
 }
 
-- (void)calculateWalkRouteSuccess:(void (^)(MKRoute *))complete {
+- (void)calculateWalkRouteSuccess:(void (^)(MKRoute *))complete failure:(void (^)())fail{
     if (!self.queryPoint && !self.destinationPoint) {
         return;
     }
@@ -56,6 +56,7 @@
     MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
     [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
         if (error) {
+            fail();
 //            NSLog(@"There was an error getting your directions");
             return;
         }
