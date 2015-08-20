@@ -98,16 +98,21 @@
         return pinAnnoView;
     } else if ([annotation isKindOfClass:[PlaceAnnotation class]]) {
         static NSString *const REUSE_PLACE_ANNOTATION = @"PLACE_ANNOTATION";
-        MKPinAnnotationView *pinAnnoView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:REUSE_PLACE_ANNOTATION];
-        pinAnnoView.canShowCallout = YES;
+        MKAnnotationView *annotateView = [mapView dequeueReusableAnnotationViewWithIdentifier:REUSE_PLACE_ANNOTATION];
+        if (!annotateView) {
+            annotateView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:REUSE_PLACE_ANNOTATION];
+        }
+        
+        PlaceAnnotation *place = annotation;
         UIButton *directionButton = [UIButton buttonWithType:UIButtonTypeCustom];
         UIImage *directionIcon = [UIImage imageNamed:@"route_button"];
         directionButton.frame = CGRectMake(0, 0, 30, 30);
         [directionButton setImage:directionIcon forState:UIControlStateNormal];
         
-        pinAnnoView.rightCalloutAccessoryView = directionButton;
-        pinAnnoView.pinColor = MKPinAnnotationColorRed;
-        return pinAnnoView;
+        annotateView.image = [UIImage imageNamed:place.imageName];
+        annotateView.canShowCallout = YES;
+        annotateView.rightCalloutAccessoryView = directionButton;
+        return annotateView;
     }
     
     return nil;

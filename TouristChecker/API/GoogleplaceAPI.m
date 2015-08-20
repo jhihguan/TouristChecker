@@ -36,7 +36,6 @@
         }
         NSMutableArray *dataArray = [[NSMutableArray alloc] init];
         for (GMSPlaceLikelihood *likelihood in likelihoodList.likelihoods) {
-            NSLog(@"%@", likelihood.place);
             NSDictionary *dataDict = [MapBaseModel transGooglePlaceData:likelihood.place];
             NSError *error = nil;
             MapBaseModel *model = [MTLJSONAdapter modelOfClass:MapBaseModel.class fromJSONDictionary:dataDict error:&error];

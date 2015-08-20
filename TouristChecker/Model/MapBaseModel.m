@@ -38,7 +38,7 @@ static NSString *const DIST_KEY = @"distance";
 
 + (NSDictionary *)transGooglePlaceData:(GMSPlace *)place {
 //    NSMutableDictionary *dataDict = [[NSMutableDictionary alloc] init];
-    static NSString *const GOOGLE_PLACE_SOURCE = @"googleplace";
+    static NSString *const GOOGLE_PLACE_SOURCE = @"google";
     NSString *type = @"";
     if (place.types.count > 0) {
         type = [place.types firstObject];
