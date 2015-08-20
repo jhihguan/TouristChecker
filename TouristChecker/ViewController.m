@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "MapViewModel.h"
-#import "PlaceAnnotation.h"
+#import <SVProgressHUD.h>
 @import MapKit;
 
 @interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate, MapViewModelDelegate>
@@ -64,6 +64,31 @@
 
 #pragma mark - MapView Delegate
 
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithPolyline:overlay];
+    renderer.strokeColor = [UIColor colorWithRed:0.837 green:0.283 blue:0.362 alpha:0.800];
+    renderer.lineWidth = 3.0;
+    return renderer;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    if ([view.annotation isKindOfClass:[PlaceAnnotation class]]) {
+        PlaceAnnotation *destPlace = (PlaceAnnotation *)view.annotation;
+        self.viewModel.destinationPoint = destPlace;
+        if (self.viewModel.walkRoute) {
+            [self.mapView removeOverlay:self.viewModel.walkRoute.polyline];
+        }
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        [self.viewModel calculateWalkRouteSuccess:^(MKRoute *route){
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            [self.mapView addOverlay:route.polyline];
+        } failure:^{
+            [SVProgressHUD showErrorWithStatus:@"Error Loading"];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        }];
+    }
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     if ([annotation isKindOfClass:[QueryAnnotation class]]) {
         static NSString *const REUSE_QUERY_ANNOTATION = @"QUERY_ANNOTATION";
@@ -75,6 +100,12 @@
         static NSString *const REUSE_PLACE_ANNOTATION = @"PLACE_ANNOTATION";
         MKPinAnnotationView *pinAnnoView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:REUSE_PLACE_ANNOTATION];
         pinAnnoView.canShowCallout = YES;
+        UIButton *directionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *directionIcon = [UIImage imageNamed:@"route_button"];
+        directionButton.frame = CGRectMake(0, 0, 30, 30);
+        [directionButton setImage:directionIcon forState:UIControlStateNormal];
+        
+        pinAnnoView.rightCalloutAccessoryView = directionButton;
         pinAnnoView.pinColor = MKPinAnnotationColorRed;
         return pinAnnoView;
     }

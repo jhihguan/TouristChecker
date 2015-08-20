@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "QueryAnnotation.h"
+#import "PlaceAnnotation.h"
 @import CoreLocation;
 
 @protocol MapViewModelDelegate;
@@ -17,9 +18,19 @@
 
 @property (nonatomic, strong) NSArray *mapDataArray;
 @property (nonatomic, strong) QueryAnnotation *queryPoint;
+@property (nonatomic, strong) PlaceAnnotation *destinationPoint;
+@property (nonatomic, strong) MKRoute *walkRoute;
 @property (nonatomic, weak) id<MapViewModelDelegate> delegate;
 
+/**
+ * Query place data nearby queryPoint
+ */
 - (void)queryPlace;
+
+/**
+ * Calculate route by queryPoint and destinationPoint
+ */
+- (void)calculateWalkRouteSuccess:(void (^)(MKRoute *route))complete failure:(void (^)())fail;
 
 @end
 @protocol MapViewModelDelegate <NSObject>

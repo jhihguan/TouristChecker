@@ -19,9 +19,6 @@
 
 @implementation MapViewModel
 
-/**
- * query place data with location
- */
 - (void)queryPlace {
     
     if (!self.queryPoint) {
@@ -43,6 +40,31 @@
         NSMutableArray *tempArray = [self.mapDataArray mutableCopy];
         [tempArray addObjectsFromArray:dataArray];
         self.mapDataArray = [[NSArray alloc] initWithArray:tempArray];
+    }];
+}
+
+- (void)calculateWalkRouteSuccess:(void (^)(MKRoute *))complete failure:(void (^)())fail{
+    if (!self.queryPoint && !self.destinationPoint) {
+        return;
+    }
+    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+    MKPlacemark *sourcePlaceMark = [[MKPlacemark alloc] initWithCoordinate:self.queryPoint.coordinate addressDictionary:nil];
+    MKPlacemark *destinationPlaceMark = [[MKPlacemark alloc] initWithCoordinate:self.destinationPoint.coordinate addressDictionary:nil];
+    request.source = [[MKMapItem alloc] initWithPlacemark:sourcePlaceMark];
+    request.destination = [[MKMapItem alloc] initWithPlacemark:destinationPlaceMark];
+    request.transportType = MKDirectionsTransportTypeWalking;
+    MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
+    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+        if (error) {
+            fail();
+//            NSLog(@"There was an error getting your directions");
+            return;
+        }
+        if (complete) {
+            MKRoute *route = [response.routes firstObject];
+            self.walkRoute = route;
+            complete(route);
+        }
     }];
 }
 
