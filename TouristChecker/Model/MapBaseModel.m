@@ -50,11 +50,11 @@ static NSString *const DIST_KEY = @"distance";
     static NSString *const YELP_SOURCE = @"yelp";
     NSMutableDictionary *dataDict = [[NSMutableDictionary alloc] init];
     [dataDict setValue:[sourceDict valueForKey:@"name"] forKey:NAME_KEY];
-    [dataDict setValue:@([[sourceDict valueForKey:@"distance"] doubleValue]) forKey:DIST_KEY];
+    [dataDict setValue:[sourceDict valueForKey:@"distance"] forKey:DIST_KEY];
     NSDictionary *locationDictionary = [sourceDict valueForKey:@"location"];
     NSDictionary *coordinateDictionary = [locationDictionary valueForKey:@"coordinate"];
     [dataDict setValue:[coordinateDictionary valueForKey:@"latitude"] forKey:LAT_KEY];
-    [dataDict setValue:[locationDictionary valueForKey:@"longitude"] forKey:LNG_KEY];
+    [dataDict setValue:[coordinateDictionary valueForKey:@"longitude"] forKey:LNG_KEY];
     NSArray *categoryArray = [sourceDict valueForKey:@"categories"];
     NSString *type = @"";
     if (categoryArray.count > 0) {

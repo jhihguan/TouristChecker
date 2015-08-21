@@ -37,7 +37,7 @@
     }];
     
     [[YelpAPI sharedAPI] searchLocationPlaces:self.locationString success:^(NSArray *dataArray) {
-        
+        [self addAndNotifyNewMapDataArray:dataArray];
     }];
 }
 

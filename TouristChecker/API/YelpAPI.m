@@ -32,9 +32,17 @@
         if (!error && httpResponse.statusCode == 200) {
             NSDictionary *searchResponseJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             NSArray *businessArray = searchResponseJSON[@"businesses"];
-//            NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+            NSMutableArray *dataArray = [[NSMutableArray alloc] init];
             for (NSDictionary *sourceDict in businessArray) {
-                NSLog(@"%@", sourceDict);
+                NSDictionary *dataDict = [MapBaseModel transYelpBusinessDict:sourceDict];
+                NSError *error = nil;
+                MapBaseModel *model = [MTLJSONAdapter modelOfClass:MapBaseModel.class fromJSONDictionary:dataDict error:&error];
+                if (!error) {
+                    [dataArray addObject:model];
+                }
+            }
+            if (complete) {
+                complete(dataArray);
             }
             
         }
