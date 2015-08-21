@@ -21,6 +21,14 @@ static NSString *const FOUR_VERSION_VALUE = @"20150818";
 // GooglePlace API KEY
 static NSString *const GOOGLE_PLACE_API_KEY = @"AIzaSyCRfPjlM9pWH_vKH2iXkNVMdXOIJihMX4A";
 
+// Yelp API Setting
+static NSString *const YELP_CONSUMER_KEY = @"JFD8zxCM26QDprOOdZp-Kg";
+static NSString *const YELP_CONSUMER_SECRET = @"GTVeOBL7FFeKAeBUH1gYm3PoI1E";
+static NSString *const YELP_TOKEN = @"4iOyMidQizSf1-mLAXiD_gHQE0R7fayR";
+static NSString *const YELP_TOKEN_SECRET = @"ozt0UGWlX8T0eQyOZ86cWHeGQ94";
+static NSString *const YELP_API_BASE = @"api.yelp.com";
+static NSString *const YELP_SEARCH_API = @"/v2/search/";
+
 @interface Constants : NSObject
 
 @end
