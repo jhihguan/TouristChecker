@@ -8,8 +8,8 @@
 
 #import "MapViewModel.h"
 #import "FoursquareAPI.h"
+#import "GoogleplaceAPI.h"
 #import "MapBaseModel.h"
-#import "PlaceAnnotation.h"
 
 @interface MapViewModel ()
 
@@ -28,18 +28,11 @@
     self.mapDataArray = [[NSArray alloc] init];
     
     [[FoursquareAPI sharedAPI] searchLocationPlaces:self.locationString success:^(NSArray *dataArray) {
-        self.isQuery = NO;
-        NSMutableArray *transArray = [[NSMutableArray alloc] init];
-        for (MapBaseModel *baseModel in dataArray) {
-            PlaceAnnotation *mapAnno = [[PlaceAnnotation alloc] initWithMapModel:baseModel];
-            [transArray addObject:mapAnno];
-        }
-        if ([self.delegate respondsToSelector:@selector(viewModelGetNewData:)]) {
-            [self.delegate viewModelGetNewData:transArray];
-        }
-        NSMutableArray *tempArray = [self.mapDataArray mutableCopy];
-        [tempArray addObjectsFromArray:dataArray];
-        self.mapDataArray = [[NSArray alloc] initWithArray:tempArray];
+        [self addAndNotifyNewMapDataArray:dataArray];
+    }];
+    
+    [[GoogleplaceAPI sharedAPI] searchLocationSuccess:^(NSArray *dataArray) {
+        [self addAndNotifyNewMapDataArray:dataArray];
     }];
 }
 
@@ -67,6 +60,27 @@
         }
     }];
 }
+
+- (void)addAndNotifyNewMapDataArray:(NSArray *)dataArray {
+    self.isQuery = NO;
+    [self showAnnotationsFromMapModelArray:dataArray];
+    NSMutableArray *tempArray = [self.mapDataArray mutableCopy];
+    [tempArray addObjectsFromArray:dataArray];
+    self.mapDataArray = [[NSArray alloc] initWithArray:tempArray];
+}
+
+- (void)showAnnotationsFromMapModelArray:(NSArray *)baseArray {
+    NSMutableArray *transArray = [[NSMutableArray alloc] init];
+    for (MapBaseModel *baseModel in baseArray) {
+        PlaceAnnotation *mapAnno = [[PlaceAnnotation alloc] initWithMapModel:baseModel];
+        [transArray addObject:mapAnno];
+    }
+    if ([self.delegate respondsToSelector:@selector(viewModelGetNewData:)]) {
+        [self.delegate viewModelGetNewData:transArray];
+    }
+}
+
+
 
 - (void)setQueryPoint:(QueryAnnotation *)queryPoint {
     _queryPoint = queryPoint;

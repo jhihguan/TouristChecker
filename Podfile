@@ -4,6 +4,7 @@ target 'TouristChecker' do
     pod 'AFNetworking'
     pod 'Mantle'
     pod 'SVProgressHUD'
+    pod 'GoogleMaps'
 end
 
 target 'TouristCheckerTests' do

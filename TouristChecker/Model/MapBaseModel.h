@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Mantle.h>
 
+@class GMSPlace;
 @interface MapBaseModel : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, strong, readonly) NSString *name;
@@ -18,6 +19,9 @@
 @property (nonatomic, assign, readonly) double latitude;
 @property (nonatomic, assign, readonly) double longitude;
 
+// transform foursquare venue dictionary to target structure
 + (NSDictionary *)transFourSquareVenueDict:(NSDictionary *)venueDict;
+// transform GMSPlace object to target structure
++ (NSDictionary *)transGooglePlaceData:(GMSPlace *)place;
 
 @end
