@@ -9,6 +9,7 @@
 #import "MapViewModel.h"
 #import "FoursquareAPI.h"
 #import "GoogleplaceAPI.h"
+#import "YelpAPI.h"
 #import "MapBaseModel.h"
 
 @interface MapViewModel ()
@@ -33,6 +34,10 @@
     
     [[GoogleplaceAPI sharedAPI] searchLocationSuccess:^(NSArray *dataArray) {
         [self addAndNotifyNewMapDataArray:dataArray];
+    }];
+    
+    [[YelpAPI sharedAPI] searchLocationPlaces:self.locationString success:^(NSArray *dataArray) {
+        
     }];
 }
 
@@ -71,7 +76,12 @@
 
 - (void)showAnnotationsFromMapModelArray:(NSArray *)baseArray {
     NSMutableArray *transArray = [[NSMutableArray alloc] init];
+    CLLocation *baseLocation = [[CLLocation alloc] initWithLatitude:self.queryPoint.coordinate.latitude longitude:self.queryPoint.coordinate.longitude];
     for (MapBaseModel *baseModel in baseArray) {
+        if (baseModel.distance == 0) {
+            CLLocation *targetLocation = [[CLLocation alloc] initWithLatitude:baseModel.latitude longitude:baseModel.longitude];
+            [baseModel setDistance:[baseLocation distanceFromLocation:targetLocation]];
+        }
         PlaceAnnotation *mapAnno = [[PlaceAnnotation alloc] initWithMapModel:baseModel];
         [transArray addObject:mapAnno];
     }

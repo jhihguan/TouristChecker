@@ -43,7 +43,9 @@
                 [dataArray addObject:model];
             }
         }
-        complete(dataArray);
+        if (complete) {
+            complete(dataArray);
+        }
     }];
 }
 

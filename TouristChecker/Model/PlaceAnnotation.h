@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *imageName;
+@property (nonatomic, strong) NSString *type;
 
 - (instancetype)initWithMapModel:(MapBaseModel *)baseModel;
 

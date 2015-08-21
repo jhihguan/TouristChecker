@@ -19,9 +19,14 @@
 @property (nonatomic, assign, readonly) double latitude;
 @property (nonatomic, assign, readonly) double longitude;
 
+- (void)setDistance:(int)distance;
+
 // transform foursquare venue dictionary to target structure
 + (NSDictionary *)transFourSquareVenueDict:(NSDictionary *)venueDict;
 // transform GMSPlace object to target structure
 + (NSDictionary *)transGooglePlaceData:(GMSPlace *)place;
+
+// transform Yelp business dictionary to target structure
++ (NSDictionary *)transYelpBusinessDict:(NSDictionary *)venueDict;
 
 @end
