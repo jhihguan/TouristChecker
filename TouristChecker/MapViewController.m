@@ -51,6 +51,9 @@
     if (self.viewModel.isQuery) {
         return;
     }
+    if (self.viewModel.walkRoute) {
+        [self.mapView removeOverlay:self.viewModel.walkRoute.polyline];
+    }
     [self.mapView removeAnnotations:self.mapView.annotations];
     self.viewModel.queryPoint = [[QueryAnnotation alloc] initWithLocation:coordinate];
     [self.mapView addAnnotation:self.viewModel.queryPoint];

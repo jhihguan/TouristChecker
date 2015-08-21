@@ -8,8 +8,9 @@
 
 #import "ListViewController.h"
 #import "MapDataTableViewCell.h"
+#import <UIScrollView+EmptyDataSet.h>
 
-@interface ListViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface ListViewController ()<UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -21,11 +22,49 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - DZN EmptyDataSet Source
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+    NSString *text = @"Please Obtain Some Data";
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f], NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
+    NSString *text = @"Long Press on Map or Allow Location Access will help you get place datas.";
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:14.0f], NSForegroundColorAttributeName: [UIColor grayColor]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
+    NSString *text = @"Back";
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:16.0f], NSForegroundColorAttributeName: [UIColor blackColor]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+#pragma mark - DZN EmptyDataSet Delegate
+
+- (void)emptyDataSetDidTapView:(UIScrollView *)scrollView {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)emptyDataSetDidTapButton:(UIScrollView *)scrollView {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - TableView DataSource

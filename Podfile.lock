@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - DZNEmptyDataSet (1.7.1)
   - GoogleMaps (1.10.1)
   - Mantle (2.0.4):
     - Mantle/extobjc (= 2.0.4)
@@ -28,12 +29,14 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - DZNEmptyDataSet
   - GoogleMaps
   - Mantle
   - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  DZNEmptyDataSet: 2a398066c2bf5848f7f693fb50954b5064debd12
   GoogleMaps: ebf08677f181d9c2dcdbd1721d206f02beccc9b1
   Mantle: 6bee68168423948be0c0c5924832bf3af188e099
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
