@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "QueryAnnotation.h"
-#import "PlaceAnnotation.h"
+#import "MapBaseModel.h"
 #import "ListViewModel.h"
 @import CoreLocation;
 

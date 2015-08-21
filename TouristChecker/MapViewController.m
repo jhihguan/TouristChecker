@@ -8,10 +8,11 @@
 
 #import "MapViewController.h"
 #import "MapViewModel.h"
+#import "ListViewController.h"
 #import <SVProgressHUD.h>
 @import MapKit;
 
-@interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, MapViewModelDelegate>
+@interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, MapViewModelDelegate, ListViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) CLLocationManager *locationManager;
@@ -56,17 +57,44 @@
     [self.viewModel queryPlace];
 }
 
+- (void)queryDestRoute:(PlaceAnnotation *)destPlace {
+    self.viewModel.destinationPoint = destPlace;
+    if (self.viewModel.walkRoute) {
+        [self.mapView removeOverlay:self.viewModel.walkRoute.polyline];
+    }
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [self.viewModel calculateWalkRouteSuccess:^(MKRoute *route){
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        [self.mapView addOverlay:route.polyline];
+    } failure:^{
+        [SVProgressHUD showErrorWithStatus:@"Error Loading"];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    }];
+}
+
 #pragma mark - ViewModel Delegate
 
 - (void)viewModelGetNewData:(NSArray *)dataArray {
     [self.mapView addAnnotations:dataArray];
 }
 
+#pragma mark - ListView Delegate
+
+- (void)listController:(ListViewController *)listVC selectMapModel:(MapBaseModel *)baseModel {
+    [listVC.navigationController popViewControllerAnimated:YES];
+    MKCoordinateRegion region = self.mapView.region;
+    region.center = CLLocationCoordinate2DMake(baseModel.latitude, baseModel.longitude);
+    [self.mapView setRegion:region animated:YES];
+    [self.mapView selectAnnotation:baseModel.mapAnno animated:NO];
+    [self queryDestRoute:baseModel.mapAnno];
+    
+}
+
 #pragma mark - MapView Delegate
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
     MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithPolyline:overlay];
-    renderer.strokeColor = [UIColor colorWithRed:0.837 green:0.283 blue:0.362 alpha:0.800];
+    renderer.strokeColor = [UIColor colorWithRed:0.216 green:0.327 blue:0.967 alpha:0.800];
     renderer.lineWidth = 3.0;
     return renderer;
 }
@@ -74,18 +102,7 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     if ([view.annotation isKindOfClass:[PlaceAnnotation class]]) {
         PlaceAnnotation *destPlace = (PlaceAnnotation *)view.annotation;
-        self.viewModel.destinationPoint = destPlace;
-        if (self.viewModel.walkRoute) {
-            [self.mapView removeOverlay:self.viewModel.walkRoute.polyline];
-        }
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-        [self.viewModel calculateWalkRouteSuccess:^(MKRoute *route){
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-            [self.mapView addOverlay:route.polyline];
-        } failure:^{
-            [SVProgressHUD showErrorWithStatus:@"Error Loading"];
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        }];
+        [self queryDestRoute:destPlace];
     }
 }
 
@@ -192,6 +209,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.destinationViewController respondsToSelector:@selector(setViewModel:)]) {
         [segue.destinationViewController performSelector:@selector(setViewModel:) withObject:[self.viewModel generateListViewModel]];
+    }
+    if ([segue.destinationViewController respondsToSelector:@selector(setDelegate:)]) {
+        [segue.destinationViewController performSelector:@selector(setDelegate:) withObject:self];
     }
 }
 

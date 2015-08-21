@@ -9,7 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "ListViewModel.h"
 
+@class MapBaseModel;
+@protocol ListViewDelegate;
 @interface ListViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet ListViewModel *viewModel;
+
+@property (nonatomic, weak) id<ListViewDelegate> delegate;
+@end
+@protocol ListViewDelegate <NSObject>
+
+- (void)listController:(ListViewController *)listVC selectMapModel:(MapBaseModel *)baseModel;
+
 @end

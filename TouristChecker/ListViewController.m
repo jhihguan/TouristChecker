@@ -17,9 +17,10 @@
 
 @implementation ListViewController
 
+#pragma mark - View Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%zd", self.viewModel.dataArray.count);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,6 +48,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+#pragma mark - TableView Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.delegate respondsToSelector:@selector(listController:selectMapModel:)]) {
+        [self.delegate listController:self selectMapModel:[self.viewModel.dataArray objectAtIndex:indexPath.row]];
+    }
 }
 
 @end

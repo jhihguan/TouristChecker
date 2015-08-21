@@ -82,7 +82,9 @@
             CLLocation *targetLocation = [[CLLocation alloc] initWithLatitude:baseModel.latitude longitude:baseModel.longitude];
             [baseModel setDistance:[baseLocation distanceFromLocation:targetLocation]];
         }
+        
         PlaceAnnotation *mapAnno = [[PlaceAnnotation alloc] initWithMapModel:baseModel];
+        baseModel.mapAnno = mapAnno;
         [transArray addObject:mapAnno];
     }
     if ([self.delegate respondsToSelector:@selector(viewModelGetNewData:)]) {
