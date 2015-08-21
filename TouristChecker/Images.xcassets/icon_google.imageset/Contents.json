@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "icon_google.png"
+      "filename" : "google.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "icon_google@2x.png"
+      "filename" : "google@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "icon_google@3x.png"
+      "filename" : "google@3x.png"
     }
   ],
   "info" : {

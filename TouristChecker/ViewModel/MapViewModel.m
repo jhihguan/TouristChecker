@@ -90,6 +90,14 @@
     }
 }
 
+- (ListViewModel *)generateListViewModel {
+    NSSortDescriptor *distanceDescriptor = [[NSSortDescriptor alloc] initWithKey:@"distance" ascending:YES];
+    NSArray *sortDescriptors = @[distanceDescriptor];
+    NSArray *sortedArray = [self.mapDataArray sortedArrayUsingDescriptors:sortDescriptors];
+    ListViewModel *viewModel = [[ListViewModel alloc] initWithDataArray:sortedArray];
+    return viewModel;
+}
+
 
 
 - (void)setQueryPoint:(QueryAnnotation *)queryPoint {

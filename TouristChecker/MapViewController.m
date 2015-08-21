@@ -6,19 +6,19 @@
 //  Copyright (c) 2015年 Wane Wang. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MapViewController.h"
 #import "MapViewModel.h"
 #import <SVProgressHUD.h>
 @import MapKit;
 
-@interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate, MapViewModelDelegate>
+@interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, MapViewModelDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) MapViewModel *viewModel;
 @end
 
-@implementation ViewController
+@implementation MapViewController
 
 #pragma mark - View Lifecycle
 
@@ -109,7 +109,7 @@
         directionButton.frame = CGRectMake(0, 0, 30, 30);
         [directionButton setImage:directionIcon forState:UIControlStateNormal];
         
-        annotateView.image = [UIImage imageNamed:place.imageName];
+        annotateView.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"map_%@", place.source]];
         annotateView.canShowCallout = YES;
         annotateView.rightCalloutAccessoryView = directionButton;
         return annotateView;
@@ -185,6 +185,14 @@
     CLLocationCoordinate2D coordinate = manager.location.coordinate;
     [self.mapView setRegion:MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.01, 0.01)) animated:YES];
     [self queryPlaceWithCoordinate:coordinate];
+}
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.destinationViewController respondsToSelector:@selector(setViewModel:)]) {
+        [segue.destinationViewController performSelector:@selector(setViewModel:) withObject:[self.viewModel generateListViewModel]];
+    }
 }
 
 #pragma mark - Init Setup

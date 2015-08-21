@@ -15,10 +15,13 @@
 		E37195E91B83302800EE69CF /* QueryAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E37195E81B83302800EE69CF /* QueryAnnotation.m */; };
 		E395C8331B84370B00A2EB2F /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E395C8321B84370B00A2EB2F /* PlaceAnnotation.m */; };
 		E3B13C611B86308A006947CC /* GoogleplaceAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B13C601B86308A006947CC /* GoogleplaceAPI.m */; };
+		E3DFC9D31B878049008D9A9A /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DFC9D21B878049008D9A9A /* ListViewController.m */; };
+		E3DFC9D61B8780B6008D9A9A /* ListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DFC9D51B8780B6008D9A9A /* ListViewModel.m */; };
+		E3DFC9DB1B8785F9008D9A9A /* MapDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DFC9DA1B8785F9008D9A9A /* MapDataTableViewCell.m */; };
 		E3F3281E1B8226010090F8E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F3281D1B8226010090F8E8 /* main.m */; };
 		E3F328211B8226010090F8E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F328201B8226010090F8E8 /* AppDelegate.m */; };
 		E3F328241B8226010090F8E8 /* TouristChecker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3F328221B8226010090F8E8 /* TouristChecker.xcdatamodeld */; };
-		E3F328271B8226010090F8E8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F328261B8226010090F8E8 /* ViewController.m */; };
+		E3F328271B8226010090F8E8 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F328261B8226010090F8E8 /* MapViewController.m */; };
 		E3F3282A1B8226010090F8E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F328281B8226010090F8E8 /* Main.storyboard */; };
 		E3F3282C1B8226010090F8E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F3282B1B8226010090F8E8 /* Images.xcassets */; };
 		E3F3282F1B8226010090F8E8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3F3282D1B8226010090F8E8 /* LaunchScreen.xib */; };
@@ -74,14 +77,20 @@
 		E395C8321B84370B00A2EB2F /* PlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaceAnnotation.m; path = Model/PlaceAnnotation.m; sourceTree = "<group>"; };
 		E3B13C5F1B86308A006947CC /* GoogleplaceAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoogleplaceAPI.h; path = API/GoogleplaceAPI.h; sourceTree = "<group>"; };
 		E3B13C601B86308A006947CC /* GoogleplaceAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoogleplaceAPI.m; path = API/GoogleplaceAPI.m; sourceTree = "<group>"; };
+		E3DFC9D11B878049008D9A9A /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		E3DFC9D21B878049008D9A9A /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		E3DFC9D41B8780B6008D9A9A /* ListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListViewModel.h; path = ViewModel/ListViewModel.h; sourceTree = "<group>"; };
+		E3DFC9D51B8780B6008D9A9A /* ListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListViewModel.m; path = ViewModel/ListViewModel.m; sourceTree = "<group>"; };
+		E3DFC9D91B8785F9008D9A9A /* MapDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapDataTableViewCell.h; path = View/MapDataTableViewCell.h; sourceTree = "<group>"; };
+		E3DFC9DA1B8785F9008D9A9A /* MapDataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapDataTableViewCell.m; path = View/MapDataTableViewCell.m; sourceTree = "<group>"; };
 		E3F328181B8226010090F8E8 /* TouristChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouristChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F3281C1B8226010090F8E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3F3281D1B8226010090F8E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E3F3281F1B8226010090F8E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E3F328201B8226010090F8E8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E3F328231B8226010090F8E8 /* TouristChecker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TouristChecker.xcdatamodel; sourceTree = "<group>"; };
-		E3F328251B8226010090F8E8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E3F328261B8226010090F8E8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E3F328251B8226010090F8E8 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		E3F328261B8226010090F8E8 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		E3F328291B8226010090F8E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E3F3282B1B8226010090F8E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E3F3282E1B8226010090F8E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -178,8 +187,12 @@
 		E37195E21B8326B500EE69CF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E35CCDED1B8364C700530AA5 /* API */,
+				E37195E61B83301500EE69CF /* Model */,
 				E37195E31B8326DD00EE69CF /* MapViewModel.h */,
 				E37195E41B8326DD00EE69CF /* MapViewModel.m */,
+				E3DFC9D41B8780B6008D9A9A /* ListViewModel.h */,
+				E3DFC9D51B8780B6008D9A9A /* ListViewModel.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -195,6 +208,27 @@
 				E35CCDF51B837F3900530AA5 /* MapBaseModel.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		E3DFC9D71B8785A9008D9A9A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E3DFC9D81B8785CC008D9A9A /* Cell */,
+				E3F328251B8226010090F8E8 /* MapViewController.h */,
+				E3F328261B8226010090F8E8 /* MapViewController.m */,
+				E3DFC9D11B878049008D9A9A /* ListViewController.h */,
+				E3DFC9D21B878049008D9A9A /* ListViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		E3DFC9D81B8785CC008D9A9A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E3DFC9D91B8785F9008D9A9A /* MapDataTableViewCell.h */,
+				E3DFC9DA1B8785F9008D9A9A /* MapDataTableViewCell.m */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		E3F3280F1B8226010090F8E8 = {
@@ -220,14 +254,11 @@
 		E3F3281A1B8226010090F8E8 /* TouristChecker */ = {
 			isa = PBXGroup;
 			children = (
+				E3DFC9D71B8785A9008D9A9A /* ViewController */,
 				E3FF3E661B86DE64006AC15F /* Library */,
-				E35CCDED1B8364C700530AA5 /* API */,
-				E37195E61B83301500EE69CF /* Model */,
 				E37195E21B8326B500EE69CF /* ViewModel */,
 				E3F3281F1B8226010090F8E8 /* AppDelegate.h */,
 				E3F328201B8226010090F8E8 /* AppDelegate.m */,
-				E3F328251B8226010090F8E8 /* ViewController.h */,
-				E3F328261B8226010090F8E8 /* ViewController.m */,
 				E3F328281B8226010090F8E8 /* Main.storyboard */,
 				E3F3282B1B8226010090F8E8 /* Images.xcassets */,
 				E3F3282D1B8226010090F8E8 /* LaunchScreen.xib */,
@@ -488,6 +519,7 @@
 				E35CCDF61B837F3900530AA5 /* MapBaseModel.m in Sources */,
 				E3FF3E951B86DE7C006AC15F /* OAConsumer.m in Sources */,
 				E3FF3E991B86DE7C006AC15F /* OAPlaintextSignatureProvider.m in Sources */,
+				E3DFC9D31B878049008D9A9A /* ListViewController.m in Sources */,
 				E3FF3E981B86DE7C006AC15F /* OAMutableURLRequest.m in Sources */,
 				E3FF3E941B86DE7C006AC15F /* OACall.m in Sources */,
 				E3F328211B8226010090F8E8 /* AppDelegate.m in Sources */,
@@ -496,8 +528,9 @@
 				E3FF3E961B86DE7C006AC15F /* OADataFetcher.m in Sources */,
 				E3FF3E9C1B86DE7C006AC15F /* OAServiceTicket.m in Sources */,
 				E3B13C611B86308A006947CC /* GoogleplaceAPI.m in Sources */,
-				E3F328271B8226010090F8E8 /* ViewController.m in Sources */,
+				E3F328271B8226010090F8E8 /* MapViewController.m in Sources */,
 				E3FF3E901B86DE7C006AC15F /* NSURL+Base.m in Sources */,
+				E3DFC9D61B8780B6008D9A9A /* ListViewModel.m in Sources */,
 				E35CCDF01B8364DE00530AA5 /* FoursquareAPI.m in Sources */,
 				E37195E51B8326DD00EE69CF /* MapViewModel.m in Sources */,
 				E395C8331B84370B00A2EB2F /* PlaceAnnotation.m in Sources */,
@@ -507,6 +540,7 @@
 				E3FF3E8E1B86DE7C006AC15F /* NSMutableURLRequest+Parameters.m in Sources */,
 				E3FF3EA11B86E06E006AC15F /* YelpAPI.m in Sources */,
 				E3FF3E911B86DE7C006AC15F /* Base64Transcoder.c in Sources */,
+				E3DFC9DB1B8785F9008D9A9A /* MapDataTableViewCell.m in Sources */,
 				E3F3281E1B8226010090F8E8 /* main.m in Sources */,
 				E3FF3E9A1B86DE7C006AC15F /* OAProblem.m in Sources */,
 				E3FF3EA41B86E124006AC15F /* NSURLRequest+OAuth.m in Sources */,
