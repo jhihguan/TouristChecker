@@ -11,4 +11,6 @@ To run this application, you have to install [`Cocoapods`](https://cocoapods.org
 3. run!
 
 ###screen shots
-![1](https://github.com/jhihguan/TouristChecker/blob/release/1.0/Screen/screen1.png)
+![1](https://github.com/jhihguan/TouristChecker/blob/master/Screen/screen1.png)
+
+Purple Pin is query location.
