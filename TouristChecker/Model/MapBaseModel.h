@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PlaceAnnotation.h"
 #import <Mantle.h>
 
 @class GMSPlace;
@@ -18,6 +19,7 @@
 @property (nonatomic, assign, readonly) int distance;
 @property (nonatomic, assign, readonly) double latitude;
 @property (nonatomic, assign, readonly) double longitude;
+@property (nonatomic, strong) PlaceAnnotation *mapAnno;
 
 - (void)setDistance:(int)distance;
 

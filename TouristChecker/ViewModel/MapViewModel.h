@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "QueryAnnotation.h"
-#import "PlaceAnnotation.h"
+#import "MapBaseModel.h"
+#import "ListViewModel.h"
 @import CoreLocation;
 
 @protocol MapViewModelDelegate;
@@ -31,6 +32,11 @@
  * Calculate route by queryPoint and destinationPoint
  */
 - (void)calculateWalkRouteSuccess:(void (^)(MKRoute *route))complete failure:(void (^)())fail;
+
+/**
+ * Create ListViewModel for list view
+ */
+- (ListViewModel *)generateListViewModel;
 
 @end
 @protocol MapViewModelDelegate <NSObject>

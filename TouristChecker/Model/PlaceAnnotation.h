@@ -13,7 +13,7 @@
 @interface PlaceAnnotation : NSObject<MKAnnotation>
 
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *imageName;
+@property (nonatomic, strong) NSString *source;
 @property (nonatomic, strong) NSString *type;
 
 - (instancetype)initWithMapModel:(MapBaseModel *)baseModel;

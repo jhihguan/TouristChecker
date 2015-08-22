@@ -5,6 +5,7 @@ target 'TouristChecker' do
     pod 'Mantle'
     pod 'SVProgressHUD'
     pod 'GoogleMaps'
+    pod 'DZNEmptyDataSet'
 end
 
 target 'TouristCheckerTests' do

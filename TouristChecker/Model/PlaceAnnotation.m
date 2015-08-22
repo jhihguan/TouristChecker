@@ -17,7 +17,7 @@
     if (self) {
         self.name = baseModel.name;
         self.type = baseModel.type;
-        self.imageName = [[NSString alloc] initWithFormat:@"icon_%@", baseModel.source];
+        self.source = baseModel.source;
         self.coordinate = CLLocationCoordinate2DMake(baseModel.latitude, baseModel.longitude);
     }
     return self;
