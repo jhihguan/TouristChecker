@@ -82,12 +82,22 @@
             CLLocation *targetLocation = [[CLLocation alloc] initWithLatitude:baseModel.latitude longitude:baseModel.longitude];
             [baseModel setDistance:[baseLocation distanceFromLocation:targetLocation]];
         }
+        
         PlaceAnnotation *mapAnno = [[PlaceAnnotation alloc] initWithMapModel:baseModel];
+        baseModel.mapAnno = mapAnno;
         [transArray addObject:mapAnno];
     }
     if ([self.delegate respondsToSelector:@selector(viewModelGetNewData:)]) {
         [self.delegate viewModelGetNewData:transArray];
     }
+}
+
+- (ListViewModel *)generateListViewModel {
+    NSSortDescriptor *distanceDescriptor = [[NSSortDescriptor alloc] initWithKey:@"distance" ascending:YES];
+    NSArray *sortDescriptors = @[distanceDescriptor];
+    NSArray *sortedArray = [self.mapDataArray sortedArrayUsingDescriptors:sortDescriptors];
+    ListViewModel *viewModel = [[ListViewModel alloc] initWithDataArray:sortedArray];
+    return viewModel;
 }
 
 

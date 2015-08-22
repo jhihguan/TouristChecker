@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "foursquare.png"
+      "filename" : "icon_google.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "foursquare@2x.png"
+      "filename" : "icon_google@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "foursquare@3x.png"
+      "filename" : "icon_google@3x.png"
     }
   ],
   "info" : {
