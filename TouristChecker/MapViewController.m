@@ -128,10 +128,13 @@
         UIImage *directionIcon = [UIImage imageNamed:@"route_button"];
         directionButton.frame = CGRectMake(0, 0, 30, 30);
         [directionButton setImage:directionIcon forState:UIControlStateNormal];
+        UIImageView *sourceImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        sourceImageView.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"icon_%@", place.source]];
         
         annotateView.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"map_%@", place.source]];
         annotateView.canShowCallout = YES;
         annotateView.rightCalloutAccessoryView = directionButton;
+        annotateView.leftCalloutAccessoryView = sourceImageView;
         return annotateView;
     }
     
