@@ -33,7 +33,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="q9o-RT-seX">
                         <barButtonItem key="rightBarButtonItem" image="list_button" id="fzU-vQ-ECP">
-                            <color key="tintColor" red="0.2784313725" green="0.14901960780000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="khy-Sn-v1O" kind="show" id="FPG-Rc-gnk"/>
                             </connections>
