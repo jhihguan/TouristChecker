@@ -14,6 +14,7 @@
 
 @interface MapViewModel ()
 
+// query parameter, format: latitude, longitude
 @property (nonatomic, strong) NSString *locationString;
 
 @end
@@ -87,8 +88,8 @@
         baseModel.mapAnno = mapAnno;
         [transArray addObject:mapAnno];
     }
-    if ([self.delegate respondsToSelector:@selector(viewModelGetNewData:)]) {
-        [self.delegate viewModelGetNewData:transArray];
+    if ([self.delegate respondsToSelector:@selector(viewModelGetNewPlaceData:)]) {
+        [self.delegate viewModelGetNewPlaceData:transArray];
     }
 }
 

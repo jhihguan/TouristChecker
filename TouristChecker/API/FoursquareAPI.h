@@ -12,6 +12,7 @@
 
 + (FoursquareAPI *)sharedAPI;
 
+// search location with latitude,longitude string
 - (void)searchLocationPlaces:(NSString *)loc success:(void (^)(NSArray *dataArray))complete;
 
 @end
