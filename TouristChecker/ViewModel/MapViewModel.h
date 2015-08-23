@@ -41,6 +41,7 @@
 @end
 @protocol MapViewModelDelegate <NSObject>
 
-- (void)viewModelGetNewData:(NSArray *)dataArray;
+// notify PlaceAnnotation array
+- (void)viewModelGetNewPlaceData:(NSArray *)dataArray;
 
 @end

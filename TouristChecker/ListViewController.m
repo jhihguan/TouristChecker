@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // if no point on map, show description
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
 }

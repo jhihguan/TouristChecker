@@ -19,6 +19,7 @@
 @end
 @protocol ListViewDelegate <NSObject>
 
+// select cell
 - (void)listController:(ListViewController *)listVC selectMapModel:(MapBaseModel *)baseModel;
 
 @end

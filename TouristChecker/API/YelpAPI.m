@@ -23,7 +23,6 @@
 }
 
 - (void)searchLocationPlaces:(NSString *)loc success:(void (^)(NSArray *))complete {
-    //Make a first request to get the search results with the passed term and location
     NSURLRequest *searchRequest = [self requestWithLocation:loc];
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithRequest:searchRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -49,6 +48,7 @@
     }] resume];
 }
 
+// generate request with parameter and url
 - (NSURLRequest *)requestWithLocation:(NSString *)location {
     NSDictionary *params = @{
         @"ll" : location, @"limit" : @(20)

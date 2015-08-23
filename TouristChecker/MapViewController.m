@@ -77,7 +77,7 @@
 
 #pragma mark - ViewModel Delegate
 
-- (void)viewModelGetNewData:(NSArray *)dataArray {
+- (void)viewModelGetNewPlaceData:(NSArray *)dataArray {
     [self.mapView addAnnotations:dataArray];
 }
 
